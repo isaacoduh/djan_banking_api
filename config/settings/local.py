@@ -10,6 +10,7 @@ if path.isfile(local_env_file):
     load_dotenv(local_env_file)
 
 # Security: Do not run with debug turned on in production
+SECRET_KEY=getenv("SECRET_KEY")
 DEBUG = getenv("DEBUG")
 
 SITE_NAME = getenv("SITE_NAME")
