@@ -114,6 +114,7 @@ class Profile(TimeStampedModel):
     phone_number = PhoneNumberField(_("Phone Number"), max_length=30, default=settings.DEFAULT_PHONE_NUMBER)
     address = models.CharField(_("Address"), max_length=100, default="Unknown")
     city = models.CharField(_("City"), max_length=50, default="Unknown")
+    country = CountryField(_("Country"), default=settings.DEFAULT_COUNTRY)
     employment_status = models.CharField(_("Employment Status"), max_length=20, choices=EmploymentStatus.choices, default=EmploymentStatus.SELF_EMPLOYED)
     employer_name = models.CharField(_("Employer Name"), max_length=50, blank=True, null=True)
     annual_income = models.DecimalField(_("Annual Income"), max_digits=12, decimal_places=2, default=0.0)

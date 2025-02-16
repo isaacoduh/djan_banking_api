@@ -18,8 +18,8 @@ from .utils import generate_otp
 
 User = get_user_model()
 
-def set_auth_cookies(response: Response, access_token: str, refresh_token: Optional[str]) -> None:
-    access_token_lifetime = settings.SIMPLE_JWT("ACCESS_TOKEN_LIFETIME").total_seconds()
+def set_auth_cookies(response: Response, access_token: str, refresh_token: Optional[str] = None) -> None:
+    access_token_lifetime = settings.SIMPLE_JWT["ACCESS_TOKEN_LIFETIME"].total_seconds()
     cookie_settings = {
         "path": settings.COOKIE_PATH,
         "secure":  settings.COOKIE_SECURE,
@@ -30,7 +30,7 @@ def set_auth_cookies(response: Response, access_token: str, refresh_token: Optio
     response.set_cookie("access", access_token, **cookie_settings)
     
     if refresh_token:
-        refresh_token_lifetime = settings.SIMPLE_JWT("REFRESH_TOKEN_LIFETIME").total_seconds()
+        refresh_token_lifetime = settings.SIMPLE_JWT["REFRESH_TOKEN_LIFETIME"].total_seconds()
         refresh_cookie_settings = cookie_settings.copy()
         refresh_cookie_settings["max_age"] = refresh_token_lifetime
         response.set_cookie("refresh", refresh_token, **refresh_cookie_settings)
