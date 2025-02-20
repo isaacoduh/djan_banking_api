@@ -33,7 +33,7 @@ class BankAccount(TimeStampedModel):
     verified_by = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True, related_name="verified_accounts")
     verification_date = models.DateTimeField(_("Verification Date"), null=True, blank=True)
     verification_notes = models.TextField(_("Verification Notes"), blank=True)
-    full_activated = models.BooleanField(_("Full Activated"), default=False)
+    fully_activated = models.BooleanField(_("Full Activated"), default=False)
 
     def __str__(self) -> str:
         return (
