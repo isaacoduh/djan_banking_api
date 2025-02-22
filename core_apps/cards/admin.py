@@ -27,6 +27,12 @@ class VirtualCardAdmin(admin.ModelAdmin):
     user_full_name.short_description = _("User")
     user_full_name.admin_order_field = "bank_account__account_number"
 
+    def bank_account_number(self, obj):
+        return obj.bank_account.account_number
+    
+    bank_account_number.short_description = _("Bank Account")
+    bank_account_number.admin_order_field = "bank_account__account_number"
+
     def get_queryset(self, request):
         return super().get_queryset(request).select_related("User", "bank_account")
     
