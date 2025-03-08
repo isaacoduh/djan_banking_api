@@ -119,5 +119,6 @@ This project serves as a **real-world FinTech application**, covering crucial as
 
 ---
 
-**Contributors**: [Your Name]  
-**License**: MIT
+**Contributors**: Isaac Oduh
+
+A Fully Featured banking API built with Docker,Django Rest Framework, NGINX, Celery, Redis, RabbitMQ 🐳 💥
